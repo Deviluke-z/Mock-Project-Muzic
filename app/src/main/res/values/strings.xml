@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Muzic</string>
+    <string name="tv_app_name">Muzic</string>
+    <string name="tv_hot_recommend">Hot Recommended</string>
+    <string name="tv_playlist">Playlist</string>
+    <string name="item_home">Home</string>
+    <string name="item_songs">Songs</string>
+    <string name="item_setting">Settings</string>
+    <string name="text_recent_played_title">Recent Played</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="tv_settings">Settings</string>
+    <string name="tv_display">Display</string>
+    <string name="tv_audio">Audio</string>
+    <string name="tv_headset">Headset</string>
+    <string name="tv_lockscreen">Lockscreen</string>
+    <string name="tv_advanced">Advanced</string>
+    <string name="tv_other">Other</string>
+</resources>
