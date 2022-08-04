@@ -1,28 +1,21 @@
-package minhduc.deviluke.muzic.view.fragment;
+package minhduc.deviluke.muzic.view.fragment.songs;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.material.navigation.NavigationView;
-
 import minhduc.deviluke.muzic.R;
-import minhduc.deviluke.muzic.databinding.FragmentHomeBinding;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
+ * Use the {@link SongsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class SongsFragment extends Fragment {
 
   // TODO: Rename parameter arguments, choose names that match
   // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,7 +26,7 @@ public class HomeFragment extends Fragment {
   private String mParam1;
   private String mParam2;
 
-  public HomeFragment() {
+  public SongsFragment() {
     // Required empty public constructor
   }
 
@@ -43,11 +36,11 @@ public class HomeFragment extends Fragment {
    *
    * @param param1 Parameter 1.
    * @param param2 Parameter 2.
-   * @return A new instance of fragment HomeFragment.
+   * @return A new instance of fragment SongsFragment.
    */
   // TODO: Rename and change types and number of parameters
-  public static HomeFragment newInstance(String param1, String param2) {
-    HomeFragment fragment = new HomeFragment();
+  public static SongsFragment newInstance(String param1, String param2) {
+    SongsFragment fragment = new SongsFragment();
     Bundle args = new Bundle();
     args.putString(ARG_PARAM1, param1);
     args.putString(ARG_PARAM2, param2);
@@ -64,16 +57,10 @@ public class HomeFragment extends Fragment {
     }
   }
 
-  private FragmentHomeBinding mBindings;
-
-
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
     // Inflate the layout for this fragment
-    mBindings = FragmentHomeBinding.inflate(inflater, container, false);
-    mBindings.ivMenu.setOnClickListener(v -> mBindings.drawerLayout.openDrawer(GravityCompat.START));
-
-    return mBindings.getRoot();
+    return inflater.inflate(R.layout.fragment_songs, container, false);
   }
 }

@@ -1,7 +1,6 @@
 package minhduc.deviluke.muzic.view.activity;
 
 import android.annotation.SuppressLint;
-import android.content.res.ColorStateList;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,9 +10,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import minhduc.deviluke.muzic.R;
 import minhduc.deviluke.muzic.databinding.LayoutMainActivityBinding;
-import minhduc.deviluke.muzic.view.fragment.HomeFragment;
-import minhduc.deviluke.muzic.view.fragment.SettingsFragment;
-import minhduc.deviluke.muzic.view.fragment.SongsFragment;
+import minhduc.deviluke.muzic.view.fragment.home.HomeFragment;
+import minhduc.deviluke.muzic.view.fragment.settings.SettingsFragment;
+import minhduc.deviluke.muzic.view.fragment.songs.SongsFragment;
 
 public class MainActivity extends AppCompatActivity {
 

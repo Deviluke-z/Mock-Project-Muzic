@@ -7,7 +7,7 @@
     android:background="@color/dark_gunmetal"
     android:orientation="vertical"
     android:paddingTop="@dimen/dp10"
-    tools:context=".view.fragment.SettingsFragment">
+    tools:context=".view.fragment.settings.SettingsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,9 +18,8 @@
 
         <ImageView
             android:id="@+id/ivMenu"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:src="@drawable/ic_option" />
 
         <TextView
@@ -35,90 +34,47 @@
             android:textSize="24sp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp10"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+    <TextView
+        style="@style/item_setting_layout"
+        android:text="@string/tv_display"
+        app:drawableStartCompat="@drawable/ic_display_gradient" />
 
-        <TextView
-            style="@style/item_setting_layout"
-            android:text="@string/tv_display"
-            app:drawableStartCompat="@drawable/ic_display_gradient" />
+    <View style="@style/screen_setting_separate_line" />
 
-    </LinearLayout>
+    <TextView
+        style="@style/item_setting_layout"
+        android:text="@string/tv_audio"
+        app:drawableStartCompat="@drawable/ic_audio_gradient" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp10"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+    <View style="@style/screen_setting_separate_line" />
 
-        <TextView
-            style="@style/item_setting_layout"
-            android:text="@string/tv_audio"
-            app:drawableStartCompat="@drawable/ic_audio_gradient" />
+    <TextView
+        style="@style/item_setting_layout"
+        android:text="@string/tv_headset"
+        app:drawableStartCompat="@drawable/ic_headphones_gradient" />
 
-    </LinearLayout>
+    <View style="@style/screen_setting_separate_line" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp10"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+    <TextView
+        style="@style/item_setting_layout"
+        android:text="@string/tv_lockscreen"
+        app:drawableStartCompat="@drawable/ic_lock_gradient" />
 
-        <TextView
-            style="@style/item_setting_layout"
-            android:text="@string/tv_headset"
-            app:drawableStartCompat="@drawable/ic_headphones_gradient" />
+    <View style="@style/screen_setting_separate_line" />
 
-    </LinearLayout>
+    <TextView
+        style="@style/item_setting_layout"
+        android:text="@string/tv_advanced"
+        app:drawableStartCompat="@drawable/ic_advanced_gradient" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp10"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+    <View style="@style/screen_setting_separate_line" />
 
-        <TextView
-            style="@style/item_setting_layout"
-            android:text="@string/tv_lockscreen"
+    <TextView
+        style="@style/item_setting_layout"
+        android:text="@string/tv_other"
+        app:drawableStartCompat="@drawable/ic_setting_gradient" />
 
-            app:drawableStartCompat="@drawable/ic_lock_gradient" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp10"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <TextView
-            style="@style/item_setting_layout"
-            android:text="@string/tv_advanced"
-            app:drawableStartCompat="@drawable/ic_advanced_gradient" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp10"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <TextView
-            style="@style/item_setting_layout"
-            android:text="@string/tv_other"
-            app:drawableStartCompat="@drawable/ic_setting_gradient" />
-
-    </LinearLayout>
+    <View style="@style/screen_setting_separate_line" />
 
     <LinearLayout
         android:layout_width="match_parent"

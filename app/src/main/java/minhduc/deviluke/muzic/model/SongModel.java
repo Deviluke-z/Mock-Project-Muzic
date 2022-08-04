@@ -1,6 +1,6 @@
 package minhduc.deviluke.muzic.model;
 
-public class Song {
+public class SongModel {
   private String mSongTitle;
   private String mSongArtist;
   private int mSongThumbnail;
