@@ -15,6 +15,7 @@
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/drawable/ic_display_gradient.xml" value="0.1995" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/drawable/ic_headphones_gradient.xml" value="0.1995" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/drawable/ic_home.xml" value="0.1995" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/drawable/ic_home_gradient.xml" value="0.1995" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/drawable/ic_lock_gradient.xml" value="0.1995" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/drawable/ic_setting_gradient.xml" value="0.1995" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/drawable/ic_song_gradient.xml" value="0.1995" />
@@ -22,18 +23,25 @@
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/drawable/primary_color.xml" value="0.1995" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/drawable/round_bg.xml" value="0.179" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
-        <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/layout/fragment_settings.xml" value="0.25" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/layout/fragment_side_menu.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/layout/fragment_songs.xml" value="0.25" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/layout/home_layout.xml" value="0.264" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/layout/item_hot_recommend.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/layout/item_recent_played.xml" value="0.25" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/layout/layout_home.xml" value="0.25" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/layout/layout_intro.xml" value="0.25" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/layout/layout_main_activity.xml" value="0.25" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/layout/layout_splash.xml" value="0.25" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/layout/splash_layout.xml" value="0.25" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/layout/toolbar.xml" value="0.20427350427350427" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/menu-v26/bottom_navigation_menu.xml" value="0.25" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/menu/bottom_navigation_manu.xml" value="0.25" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/menu/menu_bottom_nav.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/menu/menu_drawer.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/menu/menu_navigation_view.xml" value="0.24895833333333334" />
       </map>
     </option>
   </component>

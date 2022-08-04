@@ -15,4 +15,14 @@
     <string name="tv_lockscreen">Lockscreen</string>
     <string name="tv_advanced">Advanced</string>
     <string name="tv_other">Other</string>
+    <string name="item_themes">Themes</string>
+    <string name="item_ringtone">RingtoneCutter</string>
+    <string name="item_sleep_timer">Sleep Timer</string>
+    <string name="item_equaliser">Equaliser</string>
+    <string name="item_drive_mode">Drive Mode</string>
+    <string name="item_hidden_folder">Hidden Folders</string>
+    <string name="item_scan_media">Scan Media</string>
+    <string name="sample_number">69</string>
+    <string name="text_albums">Albums</string>
+    <string name="text_artist">Artist</string>
 </resources>

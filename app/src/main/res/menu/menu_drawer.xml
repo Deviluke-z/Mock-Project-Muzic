@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/itemThemes"
+            android:icon="@drawable/ic_themes"
+            android:title="@string/item_themes" />
+        <item
+            android:id="@+id/itemRingtone"
+            android:icon="@drawable/ic_cutter"
+            android:title="@string/item_ringtone" />
+        <item
+            android:id="@+id/itemSleepTimer"
+            android:icon="@drawable/ic_timer"
+            android:title="@string/item_sleep_timer" />
+        <item
+            android:id="@+id/itemEqualiser"
+            android:icon="@drawable/ic_equaliser"
+            android:title="@string/item_equaliser" />
+        <item
+            android:id="@+id/itemDriveMode"
+            android:icon="@drawable/ic_car"
+            android:title="@string/item_drive_mode" />
+        <item
+            android:id="@+id/itemHiddenFolders"
+            android:icon="@drawable/ic_folder"
+            android:title="@string/item_hidden_folder" />
+        <item
+            android:id="@+id/itemScanMedia"
+            android:icon="@drawable/ic_scanner"
+            android:title="@string/item_scan_media" />
+    </group>
+</menu>

@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:padding="@dimen/sample_margin"
+            android:padding="@dimen/dp10"
             android:src="@drawable/ic_baseline_play_circle_outline_24" />
 
         <LinearLayout
@@ -30,9 +30,9 @@
                 android:id="@+id/tvSongTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/sample_margin"
+                android:padding="@dimen/dp10"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_size_normal"
+                android:textSize="@dimen/sp16"
                 android:textStyle="bold"
                 tools:text="Blinding Lights" />
 
@@ -40,8 +40,8 @@
                 android:id="@+id/tvSongArtist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="@dimen/sample_margin"
-                android:paddingEnd="@dimen/sample_margin"
+                android:paddingStart="@dimen/dp10"
+                android:paddingEnd="@dimen/dp10"
                 android:textColor="@color/white"
                 tools:text="The Weekend" />
         </LinearLayout>

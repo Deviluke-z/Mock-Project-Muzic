@@ -6,14 +6,13 @@
     android:layout_height="match_parent"
     android:background="@color/dark_gunmetal"
     android:orientation="vertical"
-    android:paddingTop="@dimen/sample_margin"
+    android:paddingTop="@dimen/dp10"
     tools:context=".view.fragment.SettingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/sample_margin"
+        android:layout_marginHorizontal="@dimen/dp10"
         android:layout_weight="1"
         android:orientation="horizontal">
 
@@ -22,7 +21,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/ic_baseline_menu_24" />
+            android:src="@drawable/ic_option" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,18 +38,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/sample_margin"
+        android:layout_marginHorizontal="@dimen/dp10"
         android:layout_weight="1"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            style="@style/item_setting_layout"
             android:text="@string/tv_display"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
             app:drawableStartCompat="@drawable/ic_display_gradient" />
 
     </LinearLayout>
@@ -58,18 +52,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/sample_margin"
+        android:layout_marginHorizontal="@dimen/dp10"
         android:layout_weight="1"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            style="@style/item_setting_layout"
             android:text="@string/tv_audio"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
             app:drawableStartCompat="@drawable/ic_audio_gradient" />
 
     </LinearLayout>
@@ -77,18 +66,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/sample_margin"
+        android:layout_marginHorizontal="@dimen/dp10"
         android:layout_weight="1"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            style="@style/item_setting_layout"
             android:text="@string/tv_headset"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
             app:drawableStartCompat="@drawable/ic_headphones_gradient" />
 
     </LinearLayout>
@@ -96,18 +80,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/sample_margin"
+        android:layout_marginHorizontal="@dimen/dp10"
         android:layout_weight="1"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            style="@style/item_setting_layout"
             android:text="@string/tv_lockscreen"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
+
             app:drawableStartCompat="@drawable/ic_lock_gradient" />
 
     </LinearLayout>
@@ -115,18 +95,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/sample_margin"
+        android:layout_marginHorizontal="@dimen/dp10"
         android:layout_weight="1"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            style="@style/item_setting_layout"
             android:text="@string/tv_advanced"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
             app:drawableStartCompat="@drawable/ic_advanced_gradient" />
 
     </LinearLayout>
@@ -134,18 +109,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/sample_margin"
+        android:layout_marginHorizontal="@dimen/dp10"
         android:layout_weight="1"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            style="@style/item_setting_layout"
             android:text="@string/tv_other"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
             app:drawableStartCompat="@drawable/ic_setting_gradient" />
 
     </LinearLayout>

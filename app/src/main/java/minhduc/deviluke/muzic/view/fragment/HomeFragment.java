@@ -2,13 +2,20 @@ package minhduc.deviluke.muzic.view.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.navigation.NavigationView;
+
 import minhduc.deviluke.muzic.R;
+import minhduc.deviluke.muzic.databinding.FragmentHomeBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,10 +64,16 @@ public class HomeFragment extends Fragment {
     }
   }
 
+  private FragmentHomeBinding mBindings;
+
+
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
     // Inflate the layout for this fragment
-    return inflater.inflate(R.layout.fragment_home, container, false);
+    mBindings = FragmentHomeBinding.inflate(inflater, container, false);
+    mBindings.ivMenu.setOnClickListener(v -> mBindings.drawerLayout.openDrawer(GravityCompat.START));
+
+    return mBindings.getRoot();
   }
 }

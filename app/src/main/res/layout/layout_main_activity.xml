@@ -21,7 +21,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            app:itemBackground="@color/dark_gunmetal"
-            app:menu="@menu/bottom_navigation_menu" />
+            app:backgroundTint="@color/dark_gunmetal"
+            app:itemIconTint="@color/feminine_gray"
+            app:itemRippleColor="@color/middle_red"
+            app:itemTextColor="@color/feminine_gray"
+            app:menu="@menu/menu_bottom_nav" />
     </LinearLayout>
 </layout>
