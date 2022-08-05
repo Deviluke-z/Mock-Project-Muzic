@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_hot_recommend_sample" />
+                    tools:listitem="@layout/item_playlist_sample" />
 
                 <View
                     android:layout_width="match_parent"

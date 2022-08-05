@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import minhduc.deviluke.muzic.R;
-import minhduc.deviluke.muzic.databinding.ItemHotRecommendSampleBinding;
+import minhduc.deviluke.muzic.databinding.ItemPlaylistSampleBinding;
 import minhduc.deviluke.muzic.model.SampleItemModel;
 
-public class HotRecommendAdapter extends RecyclerView.Adapter<HotRecommendAdapter.ViewHolder> {
+public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.ViewHolder> {
 
   private LayoutInflater layoutInflater;
   private List<SampleItemModel> mSampleItemList;
@@ -25,9 +25,9 @@ public class HotRecommendAdapter extends RecyclerView.Adapter<HotRecommendAdapte
       layoutInflater = LayoutInflater.from(parent.getContext());
     }
 
-    ItemHotRecommendSampleBinding binding = DataBindingUtil.inflate(
+    ItemPlaylistSampleBinding binding = DataBindingUtil.inflate(
         layoutInflater,
-        R.layout.item_hot_recommend_sample,
+        R.layout.item_playlist_sample,
         parent,
         false
     );
@@ -38,7 +38,7 @@ public class HotRecommendAdapter extends RecyclerView.Adapter<HotRecommendAdapte
   @Override
   public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
     SampleItemModel sampleItemModel = mSampleItemList.get(position);
-    holder.mBinding.ivHotSong.setImageResource(sampleItemModel.getImage());
+    holder.mBinding.ivPlaylist.setImageResource(sampleItemModel.getImage());
   }
 
   @Override
@@ -49,17 +49,17 @@ public class HotRecommendAdapter extends RecyclerView.Adapter<HotRecommendAdapte
     return mSampleItemList.size();
   }
 
-  public void setListHotRecommend(List<SampleItemModel> sampleItemModelList) {
+  public void setListPlaylist(List<SampleItemModel> sampleItemModelList) {
     this.mSampleItemList = sampleItemModelList;
   }
 
   public class ViewHolder extends RecyclerView.ViewHolder {
+    private ItemPlaylistSampleBinding mBinding;
 
-    private ItemHotRecommendSampleBinding mBinding;
 
-    public ViewHolder(@NonNull ItemHotRecommendSampleBinding binding) {
+    public ViewHolder(@NonNull ItemPlaylistSampleBinding binding) {
       super(binding.getRoot());
-      mBinding = binding;
+      this.mBinding = binding;
     }
   }
 }

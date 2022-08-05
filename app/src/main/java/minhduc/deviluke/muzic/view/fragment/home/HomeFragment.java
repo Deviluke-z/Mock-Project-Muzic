@@ -1,14 +1,13 @@
 package minhduc.deviluke.muzic.view.fragment.home;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,57 +16,18 @@ import minhduc.deviluke.muzic.R;
 import minhduc.deviluke.muzic.databinding.FragmentHomeBinding;
 import minhduc.deviluke.muzic.model.SampleItemModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class HomeFragment extends Fragment {
 
-  // TODO: Rename parameter arguments, choose names that match
-  // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-  private static final String ARG_PARAM1 = "param1";
-  private static final String ARG_PARAM2 = "param2";
-
-  // TODO: Rename and change types of parameters
-  private String mParam1;
-  private String mParam2;
+  private FragmentHomeBinding mBindings;
+  private HotRecommendAdapter mHotRecommendAdapter;
+  private PlaylistAdapter mPlaylistAdapter;
+  private List<SampleItemModel> mSampleItemList1 = new ArrayList<>();
+  private List<SampleItemModel> mSampleItemList2 = new ArrayList<>();
+  private SampleItemModel sampleItemModel1, sampleItemModel2;
 
   public HomeFragment() {
     // Required empty public constructor
   }
-
-  /**
-   * Use this factory method to create a new instance of
-   * this fragment using the provided parameters.
-   *
-   * @param param1 Parameter 1.
-   * @param param2 Parameter 2.
-   * @return A new instance of fragment HomeFragment.
-   */
-  // TODO: Rename and change types and number of parameters
-  public static HomeFragment newInstance(String param1, String param2) {
-    HomeFragment fragment = new HomeFragment();
-    Bundle args = new Bundle();
-    args.putString(ARG_PARAM1, param1);
-    args.putString(ARG_PARAM2, param2);
-    fragment.setArguments(args);
-    return fragment;
-  }
-
-  @Override
-  public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    if (getArguments() != null) {
-      mParam1 = getArguments().getString(ARG_PARAM1);
-      mParam2 = getArguments().getString(ARG_PARAM2);
-    }
-  }
-
-  private FragmentHomeBinding mBindings;
-  private HotRecommendAdapter mHotRecommendAdapter;
-  private List<SampleItemModel> mSampleItemList = new ArrayList<>();
-  private SampleItemModel sampleItemModel;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,20 +37,36 @@ public class HomeFragment extends Fragment {
     mBindings.ivMenu.setOnClickListener(v -> mBindings.drawerLayout.openDrawer(GravityCompat.START));
 
     // setup fake Hot Recommend recycler view
-    sampleItemModel = new SampleItemModel(R.drawable.ic_sample_song);
-    mSampleItemList.add(sampleItemModel);
-    mSampleItemList.add(sampleItemModel);
-    mSampleItemList.add(sampleItemModel);
-    mSampleItemList.add(sampleItemModel);
-    mSampleItemList.add(sampleItemModel);
+    sampleItemModel1 = new SampleItemModel(R.drawable.ic_sample_song);
+    for (int i = 0; i < 5; i++) {
+      mSampleItemList1.add(sampleItemModel1);
+    }
 
     mHotRecommendAdapter = new HotRecommendAdapter();
-    mHotRecommendAdapter.setListHotRecommend(mSampleItemList);
+    mHotRecommendAdapter.setListHotRecommend(mSampleItemList1);
 
-    mBindings.rvHotRecommend.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
+    mBindings.rvHotRecommend.setLayoutManager(new LinearLayoutManager(
+        requireActivity(),
+        LinearLayoutManager.HORIZONTAL,
+        false));
     mBindings.rvHotRecommend.setAdapter(mHotRecommendAdapter);
 
-    //
+    // setup fake Playlist recycler view
+    sampleItemModel2 = new SampleItemModel(R.drawable.ic_sample_playlist);
+
+    for (int i = 0; i < 7; i++) {
+      mSampleItemList2.add(sampleItemModel2);
+    }
+
+    mPlaylistAdapter = new PlaylistAdapter();
+    mPlaylistAdapter.setListPlaylist(mSampleItemList2);
+
+    mBindings.rvPlaylist.setLayoutManager(new LinearLayoutManager(
+        requireActivity(),
+        LinearLayoutManager.HORIZONTAL,
+        false));
+    mBindings.rvPlaylist.setAdapter(mPlaylistAdapter);
+
 
     return mBindings.getRoot();
   }
