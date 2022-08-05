@@ -6,7 +6,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/dark_gunmetal"
+        android:background="@color/color_main_theme"
         android:orientation="vertical"
         tools:context=".view.screen.activity.MainActivity">
 
@@ -21,10 +21,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            app:backgroundTint="@color/dark_gunmetal"
-            app:itemIconTint="@color/feminine_gray"
+            app:backgroundTint="@color/color_main_theme"
             app:itemRippleColor="@color/middle_red"
-            app:itemTextColor="@color/feminine_gray"
+            app:itemTextColor="@color/gray"
             app:menu="@menu/menu_bottom_nav" />
     </LinearLayout>
 </layout>

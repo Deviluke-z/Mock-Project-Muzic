@@ -11,7 +11,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/dark_gunmetal"
+            android:background="@color/color_main_theme"
             android:orientation="vertical"
             tools:context=".view.fragment.home.HomeFragment">
 
@@ -114,7 +114,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:background="@color/dark_gunmetal">
+            android:background="@color/color_main_theme">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -124,7 +124,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/arsenic"
+                    android:background="@color/color_main_theme_lighter"
                     android:orientation="vertical">
 
                     <ImageView
@@ -190,33 +190,38 @@
 
                     <TextView
                         style="@style/item_setting_layout"
-                        android:text="@string/tv_display"
-                        app:drawableStartCompat="@drawable/ic_display_gradient" />
+                        android:text="@string/tv_themes"
+                        app:drawableStartCompat="@drawable/ic_themes" />
 
                     <TextView
                         style="@style/item_setting_layout"
-                        android:text="@string/tv_audio"
-                        app:drawableStartCompat="@drawable/ic_audio_gradient" />
+                        android:text="@string/tv_ringtone"
+                        app:drawableStartCompat="@drawable/ic_cutter" />
 
                     <TextView
                         style="@style/item_setting_layout"
-                        android:text="@string/tv_headset"
-                        app:drawableStartCompat="@drawable/ic_headphones_gradient" />
+                        android:text="@string/tv_timer"
+                        app:drawableStartCompat="@drawable/ic_timer" />
 
                     <TextView
                         style="@style/item_setting_layout"
-                        android:text="@string/tv_lockscreen"
-                        app:drawableStartCompat="@drawable/ic_lock_gradient" />
+                        android:text="@string/tv_equaliser"
+                        app:drawableStartCompat="@drawable/ic_equaliser" />
 
                     <TextView
                         style="@style/item_setting_layout"
-                        android:text="@string/tv_advanced"
-                        app:drawableStartCompat="@drawable/ic_advanced_gradient" />
+                        android:text="@string/tv_driver_mode"
+                        app:drawableStartCompat="@drawable/ic_car" />
 
                     <TextView
                         style="@style/item_setting_layout"
-                        android:text="@string/tv_other"
-                        app:drawableStartCompat="@drawable/ic_setting_gradient" />
+                        android:text="@string/tv_folder"
+                        app:drawableStartCompat="@drawable/ic_folder" />
+
+                    <TextView
+                        style="@style/item_setting_layout"
+                        android:text="@string/tv_scan"
+                        app:drawableStartCompat="@drawable/ic_scanner" />
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.navigation.NavigationView>

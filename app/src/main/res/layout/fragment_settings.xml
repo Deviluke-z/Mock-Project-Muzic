@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_gunmetal"
+    android:background="@color/color_main_theme"
     android:orientation="vertical"
     tools:context=".view.fragment.settings.SettingsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp10"
-        android:layout_weight="1"
+        android:layout_margin="@dimen/dp10"
         android:orientation="horizontal">
 
         <ImageView
@@ -74,9 +73,5 @@
 
     <View style="@style/screen_setting_separate_line" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="10" />
 
 </LinearLayout>

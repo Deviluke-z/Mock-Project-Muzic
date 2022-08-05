@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     loadFragments(new HomeFragment());
 
+    layoutMainActivityBinding.bottomNavigation.setItemIconTintList(null);
     layoutMainActivityBinding.bottomNavigation.setOnItemSelectedListener(item -> {
       Fragment fragment;
       switch (item.getItemId()) {

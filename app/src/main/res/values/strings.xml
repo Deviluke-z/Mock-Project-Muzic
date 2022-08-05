@@ -25,4 +25,12 @@
     <string name="sample_number">69</string>
     <string name="text_albums">Albums</string>
     <string name="text_artist">Artist</string>
+    <string name="tv_themes">Themes</string>
+    <string name="tv_ringtone">Ringtone Cutter</string>
+    <string name="tv_timer">Sleep Timer</string>
+    <string name="tv_equaliser">Equaliser</string>
+    <string name="tv_driver_mode">Driver Mode</string>
+    <string name="tv_folder">Hidden Folder</string>
+    <string name="tv_scan">Scan Media</string>
+    />
 </resources>
