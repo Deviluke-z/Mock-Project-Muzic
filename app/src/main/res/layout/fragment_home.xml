@@ -6,8 +6,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:openDrawer="start">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,7 +35,6 @@
                     android:layout_margin="@dimen/dp10"
                     android:layout_weight="4"
                     android:background="@drawable/round_bg"
-                    android:backgroundTint="@color/arsenic"
                     app:iconifiedByDefault="false"
                     app:queryHint="Search song, album, ..." />
             </LinearLayout>
@@ -61,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_sample" />
+                    tools:listitem="@layout/item_hot_recommend_sample" />
 
                 <View
                     android:layout_width="match_parent"
@@ -85,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_sample" />
+                    tools:listitem="@layout/item_hot_recommend_sample" />
 
                 <View
                     android:layout_width="match_parent"

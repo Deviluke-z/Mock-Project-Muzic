@@ -4,12 +4,18 @@ import android.os.Bundle;
 
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import minhduc.deviluke.muzic.R;
 import minhduc.deviluke.muzic.databinding.FragmentHomeBinding;
+import minhduc.deviluke.muzic.model.SampleItemModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,7 +65,9 @@ public class HomeFragment extends Fragment {
   }
 
   private FragmentHomeBinding mBindings;
-
+  private HotRecommendAdapter mHotRecommendAdapter;
+  private List<SampleItemModel> mSampleItemList = new ArrayList<>();
+  private SampleItemModel sampleItemModel;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,6 +75,22 @@ public class HomeFragment extends Fragment {
     // Inflate the layout for this fragment
     mBindings = FragmentHomeBinding.inflate(inflater, container, false);
     mBindings.ivMenu.setOnClickListener(v -> mBindings.drawerLayout.openDrawer(GravityCompat.START));
+
+    // setup fake Hot Recommend recycler view
+    sampleItemModel = new SampleItemModel(R.drawable.ic_sample_song);
+    mSampleItemList.add(sampleItemModel);
+    mSampleItemList.add(sampleItemModel);
+    mSampleItemList.add(sampleItemModel);
+    mSampleItemList.add(sampleItemModel);
+    mSampleItemList.add(sampleItemModel);
+
+    mHotRecommendAdapter = new HotRecommendAdapter();
+    mHotRecommendAdapter.setListHotRecommend(mSampleItemList);
+
+    mBindings.rvHotRecommend.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
+    mBindings.rvHotRecommend.setAdapter(mHotRecommendAdapter);
+
+    //
 
     return mBindings.getRoot();
   }
