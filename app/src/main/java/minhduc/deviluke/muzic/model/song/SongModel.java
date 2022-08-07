@@ -1,9 +1,25 @@
-package minhduc.deviluke.muzic.model;
+package minhduc.deviluke.muzic.model.song;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "song_table")
 public class SongModel {
+
+  @PrimaryKey(autoGenerate = true)
+  private int mId;
+
+  @ColumnInfo(name = "song_title")
   private String mSongTitle;
+
+  @ColumnInfo(name = "song_artist")
   private String mSongArtist;
+
+  @ColumnInfo(name = "song_thumbnail")
   private int mSongThumbnail;
+
+  @ColumnInfo(name = "song_duration")
   private int mSongDuration;
 
   public String getSongTitle() {
@@ -34,7 +50,7 @@ public class SongModel {
     return mSongDuration;
   }
 
-  public void setmSongDuration(int mSongDuration) {
+  public void setSongDuration(int mSongDuration) {
     this.mSongDuration = mSongDuration;
   }
 
