@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import minhduc.deviluke.muzic.databinding.FragmentSongsBinding;
+import minhduc.deviluke.muzic.view.fragment.songs.view_pager.ViewPagerAdapter;
 
 public class SongsFragment extends Fragment {
 

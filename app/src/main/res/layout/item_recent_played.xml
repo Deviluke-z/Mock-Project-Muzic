@@ -5,6 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp10"
         android:background="@color/color_main_theme"
         android:orientation="vertical">
 
@@ -15,22 +16,20 @@
 
             <ImageView
                 android:id="@+id/ivPlay"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_weight="1"
                 android:padding="@dimen/dp10"
                 android:src="@drawable/ic_baseline_play_circle_outline_24" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tvSongTitle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/dp10"
                     android:textColor="@color/white"

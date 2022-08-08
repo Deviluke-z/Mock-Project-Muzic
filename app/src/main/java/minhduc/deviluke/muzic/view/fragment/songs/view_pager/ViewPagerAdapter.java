@@ -1,15 +1,15 @@
-package minhduc.deviluke.muzic.view.fragment.songs;
+package minhduc.deviluke.muzic.view.fragment.songs.view_pager;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import minhduc.deviluke.muzic.view.fragment.songs.view_pager.AlbumsFragment;
+import minhduc.deviluke.muzic.view.fragment.songs.view_pager.albums.AlbumsFragment;
 import minhduc.deviluke.muzic.view.fragment.songs.view_pager.all_songs.AllSongsFragment;
-import minhduc.deviluke.muzic.view.fragment.songs.view_pager.ArtistsFragment;
-import minhduc.deviluke.muzic.view.fragment.songs.view_pager.GenresFragment;
-import minhduc.deviluke.muzic.view.fragment.songs.view_pager.PlaylistsFragment;
+import minhduc.deviluke.muzic.view.fragment.songs.view_pager.artists.ArtistsFragment;
+import minhduc.deviluke.muzic.view.fragment.songs.view_pager.genres.GenresFragment;
+import minhduc.deviluke.muzic.view.fragment.songs.view_pager.playlists.PlaylistsFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
   

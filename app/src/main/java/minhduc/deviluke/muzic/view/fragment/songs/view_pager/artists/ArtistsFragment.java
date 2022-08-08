@@ -1,4 +1,4 @@
-package minhduc.deviluke.muzic.view.fragment.songs.view_pager;
+package minhduc.deviluke.muzic.view.fragment.songs.view_pager.artists;
 
 import android.os.Bundle;
 
