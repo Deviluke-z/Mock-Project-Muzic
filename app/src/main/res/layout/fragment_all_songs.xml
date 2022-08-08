@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:background="@color/color_main_theme"
         android:orientation="vertical"
-        tools:context=".view.fragment.songs.child_fragment.all_songs.AllSongsFragment">
+        tools:context=".view.fragment.songs.view_pager.all_songs.AllSongsFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvAllSong"

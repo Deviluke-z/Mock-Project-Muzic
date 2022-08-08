@@ -6,59 +6,62 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import minhduc.deviluke.muzic.model.song.SongModel;
 
 // to query songs
 public class SongViewModel extends AndroidViewModel {
-
-  private LiveData<List<SongModel>> mLiveDataListSong;
-
+  
+  private final MutableLiveData<List<SongModel>> mLiveDataListSong = new MutableLiveData<>();
+  
   public SongViewModel(@NonNull Application application) {
     super(application);
   }
-
+  
   public void fetchSong() {
     Uri mMediaStoreUri;
-
+    List<SongModel> mListSong = new ArrayList<>();
+    
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
       mMediaStoreUri = MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL);
     } else {
       mMediaStoreUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
     }
-
+    
     // projection a.k.a table
     String[] mSongProjection = new String[]{
-        MediaStore.Audio.Media._ID,
-        MediaStore.Audio.Media.DISPLAY_NAME,
-        MediaStore.Audio.Media.ARTIST,
-        MediaStore.Audio.Media.DURATION,
-        MediaStore.Audio.Media.SIZE,
-        MediaStore.Audio.Media.ALBUM_ID
+      MediaStore.Audio.Media._ID,
+      MediaStore.Audio.Media.DISPLAY_NAME,
+      MediaStore.Audio.Media.ARTIST,
+      MediaStore.Audio.Media.DURATION,
+      MediaStore.Audio.Media.SIZE,
+      MediaStore.Audio.Media.ALBUM_ID
     };
-
+    
     // sorting
     String mSorting = MediaStore.Video.Media.DISPLAY_NAME + " ASC";
-
+    
     // query songs
     try (Cursor cursor = getApplication().getContentResolver().query(
-        mMediaStoreUri, mSongProjection, null, null, mSorting
+      mMediaStoreUri, mSongProjection, null, null, mSorting
     )) {
-
+      
       int mSongIdColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media._ID);
       int mSongTitleColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DISPLAY_NAME);
       int mSongArtistColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST);
       int mSongDurationColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION);
       int mSongSizeColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.SIZE);
 //      int mSongThumbnailColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID);
-
+      
       // clear previous loader before running new loader
       while (cursor.moveToNext()) {
         long mSongId = cursor.getLong(mSongIdColumn);
@@ -67,29 +70,30 @@ public class SongViewModel extends AndroidViewModel {
         int mSongDuration = cursor.getInt(mSongDurationColumn);
         int mSongSize = cursor.getInt(mSongSizeColumn);
 //        long mSongThumbnail = cursor.getLong(mSongThumbnailColumn);
-
+        
         // song uri
         Uri songUri = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, mSongId);
-
+        
         // song thumbnail
 //        Uri thumbnailUri = ContentUris.withAppendedId(Uri.parse("content://media/external/audio/thumbnail"), mSongThumbnail);
-
+        
         // song title
         mSongTitle = mSongTitle.substring(0, mSongTitle.lastIndexOf("."));
-
+        
         // song
         SongModel songModel = new SongModel(mSongTitle, mSongArtist, songUri, mSongDuration, mSongSize);
-
-        // add to list
-        Objects.requireNonNull(mLiveDataListSong.getValue()).add(songModel);
+        
+        // add song to list
+        mListSong.add(songModel);
+        Log.d("Debug", mSongTitle);
       }
-
-      // update song list to screen
-      updateListSong();
+      // post value
+      Log.d("Debug", "" + mListSong.size());
+      mLiveDataListSong.postValue(mListSong);
     }
   }
-
-  private void updateListSong() {
   
+  public LiveData<List<SongModel>> getLiveDataListSong() {
+    return mLiveDataListSong;
   }
 }
