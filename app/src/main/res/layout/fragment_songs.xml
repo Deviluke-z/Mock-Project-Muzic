@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/color_main_theme"
     android:orientation="vertical"
     tools:context=".view.fragment.songs.SongsFragment">
@@ -75,6 +75,7 @@
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/songFragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

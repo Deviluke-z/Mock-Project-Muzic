@@ -1,57 +1,71 @@
 package minhduc.deviluke.muzic.model.song;
 
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
+import android.net.Uri;
 
-@Entity(tableName = "song_table")
 public class SongModel {
 
-  @PrimaryKey(autoGenerate = true)
-  private int mId;
+  private String mTitle;
+  private String mArtist;
+  private Uri mUri;
+  private Uri mThumbnailUri;
+  private int mDuration;
+  private int mSize;
 
-  @ColumnInfo(name = "song_title")
-  private String mSongTitle;
-
-  @ColumnInfo(name = "song_artist")
-  private String mSongArtist;
-
-  @ColumnInfo(name = "song_thumbnail")
-  private int mSongThumbnail;
-
-  @ColumnInfo(name = "song_duration")
-  private int mSongDuration;
-
-  public String getSongTitle() {
-    return mSongTitle;
+  // constructor
+  public SongModel(String mTitle, String mArtist, Uri mUri, Uri mThumbnailUri, int mDuration, int mSize) {
+    this.mTitle = mTitle;
+    this.mArtist = mArtist;
+    this.mUri = mUri;
+    this.mThumbnailUri = mThumbnailUri;
+    this.mDuration = mDuration;
+    this.mSize = mSize;
   }
 
-  public void setSongTitle(String mSongTitle) {
-    this.mSongTitle = mSongTitle;
+  public String getTitle() {
+    return mTitle;
   }
 
-  public String getSongArtist() {
-    return mSongArtist;
+  public void setTitle(String mTitle) {
+    this.mTitle = mTitle;
   }
 
-  public void setSongArtist(String mSongArtist) {
-    this.mSongArtist = mSongArtist;
+  public String getArtist() {
+    return mArtist;
   }
 
-  public int getSongThumbnail() {
-    return mSongThumbnail;
+  public void setArtist(String mArtist) {
+    this.mArtist = mArtist;
   }
 
-  public void setSongThumbnail(int mSongThumbnail) {
-    this.mSongThumbnail = mSongThumbnail;
+  public Uri getUri() {
+    return mUri;
   }
 
-  public int getSongDuration() {
-    return mSongDuration;
+  public void setUri(Uri mUri) {
+    this.mUri = mUri;
   }
 
-  public void setSongDuration(int mSongDuration) {
-    this.mSongDuration = mSongDuration;
+  public Uri getThumbnailUri() {
+    return mThumbnailUri;
   }
 
+  public void setThumbnailUri(Uri mThumbnailUri) {
+    this.mThumbnailUri = mThumbnailUri;
+  }
+
+  public int getDuration() {
+    return mDuration;
+  }
+
+  public void setDuration(int mDuration) {
+    this.mDuration = mDuration;
+  }
+
+  public int getSize() {
+    return mSize;
+  }
+
+  public void setSize(int mSize) {
+    this.mSize = mSize;
+  }
 }

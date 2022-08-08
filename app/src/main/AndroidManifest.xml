@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="minhduc.deviluke.muzic">
 
-    <!-- Max SDK Version for scoped storage -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
