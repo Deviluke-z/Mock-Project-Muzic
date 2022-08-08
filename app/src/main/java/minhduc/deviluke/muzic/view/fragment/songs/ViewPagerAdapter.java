@@ -1,26 +1,26 @@
 package minhduc.deviluke.muzic.view.fragment.songs;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import minhduc.deviluke.muzic.view.fragment.songs.child_fragment.AlbumsFragment;
-import minhduc.deviluke.muzic.view.fragment.songs.child_fragment.AllSongsFragment;
+import minhduc.deviluke.muzic.view.fragment.songs.child_fragment.all_songs.AllSongsFragment;
 import minhduc.deviluke.muzic.view.fragment.songs.child_fragment.ArtistsFragment;
 import minhduc.deviluke.muzic.view.fragment.songs.child_fragment.GenresFragment;
 import minhduc.deviluke.muzic.view.fragment.songs.child_fragment.PlaylistsFragment;
 
-public class ViewPagerAdapter extends FragmentStatePagerAdapter {
-
-  public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
-    super(fm, behavior);
+public class ViewPagerAdapter extends FragmentStateAdapter {
+  
+  
+  public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+    super(fragmentActivity);
   }
-
+  
   @NonNull
   @Override
-  public Fragment getItem(int position) {
+  public Fragment createFragment(int position) {
     switch (position) {
       case 1:
         return new PlaylistsFragment();
@@ -34,33 +34,9 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         return new AllSongsFragment();
     }
   }
-
+  
   @Override
-  public int getCount() {
+  public int getItemCount() {
     return 5;
-  }
-
-  @Nullable
-  @Override
-  public CharSequence getPageTitle(int position) {
-    String title = "";
-    switch (position) {
-      default:
-        title = "All Songs";
-        break;
-      case 1:
-        title = "Playlists";
-        break;
-      case 2:
-        title = "Albums";
-        break;
-      case 3:
-        title = "Artists";
-        break;
-      case 4:
-        title = "Genres";
-        break;
-    }
-    return super.getPageTitle(position);
   }
 }

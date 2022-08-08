@@ -1,6 +1,7 @@
-package minhduc.deviluke.muzic.view.fragment.home;
+package minhduc.deviluke.muzic.view.fragment.songs.child_fragment.all_songs;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -8,11 +9,11 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import minhduc.deviluke.muzic.R;
-import minhduc.deviluke.muzic.databinding.ItemRecentPlayedBinding;
+import minhduc.deviluke.muzic.databinding.FragmentAllSongsBinding;
 
-public class RecentPlayedAdapter extends RecyclerView.Adapter<RecentPlayedAdapter.ViewHolder> {
+public class AllSongsAdapter extends RecyclerView.Adapter<AllSongsAdapter.ViewHolder> {
   
-  private LayoutInflater layoutInflater;
+  LayoutInflater layoutInflater;
   
   @NonNull
   @Override
@@ -21,18 +22,20 @@ public class RecentPlayedAdapter extends RecyclerView.Adapter<RecentPlayedAdapte
       layoutInflater = LayoutInflater.from(parent.getContext());
     }
     
-    ItemRecentPlayedBinding binding = DataBindingUtil.inflate(
+    FragmentAllSongsBinding binding = DataBindingUtil.inflate(
       layoutInflater,
       R.layout.item_recent_played,
       parent,
       false
     );
     
-    return new ViewHolder(binding);
+    
+    return null;
   }
   
   @Override
   public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+  
   }
   
   @Override
@@ -41,10 +44,10 @@ public class RecentPlayedAdapter extends RecyclerView.Adapter<RecentPlayedAdapte
   }
   
   public class ViewHolder extends RecyclerView.ViewHolder {
+  
+    FragmentAllSongsBinding mBindings;
     
-    ItemRecentPlayedBinding mBindings;
-    
-    public ViewHolder(@NonNull ItemRecentPlayedBinding binding) {
+    public ViewHolder(@NonNull FragmentAllSongsBinding binding) {
       super(binding.getRoot());
       this.mBindings = binding;
     }

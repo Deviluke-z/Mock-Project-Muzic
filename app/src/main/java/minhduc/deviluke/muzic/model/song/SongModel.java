@@ -12,11 +12,10 @@ public class SongModel {
   private int mSize;
 
   // constructor
-  public SongModel(String mTitle, String mArtist, Uri mUri, Uri mThumbnailUri, int mDuration, int mSize) {
+  public SongModel(String mTitle, String mArtist, Uri mUri, int mDuration, int mSize) {
     this.mTitle = mTitle;
     this.mArtist = mArtist;
     this.mUri = mUri;
-    this.mThumbnailUri = mThumbnailUri;
     this.mDuration = mDuration;
     this.mSize = mSize;
   }

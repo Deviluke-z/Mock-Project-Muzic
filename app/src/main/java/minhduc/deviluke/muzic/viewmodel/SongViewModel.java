@@ -57,7 +57,7 @@ public class SongViewModel extends AndroidViewModel {
       int mSongArtistColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST);
       int mSongDurationColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION);
       int mSongSizeColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.SIZE);
-      int mSongThumbnailColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID);
+//      int mSongThumbnailColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID);
 
       // clear previous loader before running new loader
       while (cursor.moveToNext()) {
@@ -66,19 +66,19 @@ public class SongViewModel extends AndroidViewModel {
         String mSongArtist = cursor.getString(mSongArtistColumn);
         int mSongDuration = cursor.getInt(mSongDurationColumn);
         int mSongSize = cursor.getInt(mSongSizeColumn);
-        long mSongThumbnail = cursor.getLong(mSongThumbnailColumn);
+//        long mSongThumbnail = cursor.getLong(mSongThumbnailColumn);
 
         // song uri
         Uri songUri = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, mSongId);
 
         // song thumbnail
-        Uri thumbnailUri = ContentUris.withAppendedId(Uri.parse("content://media/external/audio/thumbnail"), mSongThumbnail);
+//        Uri thumbnailUri = ContentUris.withAppendedId(Uri.parse("content://media/external/audio/thumbnail"), mSongThumbnail);
 
         // song title
         mSongTitle = mSongTitle.substring(0, mSongTitle.lastIndexOf("."));
 
         // song
-        SongModel songModel = new SongModel(mSongTitle, mSongArtist, songUri, thumbnailUri, mSongDuration, mSongSize);
+        SongModel songModel = new SongModel(mSongTitle, mSongArtist, songUri, mSongDuration, mSongSize);
 
         // add to list
         Objects.requireNonNull(mLiveDataListSong.getValue()).add(songModel);
@@ -90,5 +90,6 @@ public class SongViewModel extends AndroidViewModel {
   }
 
   private void updateListSong() {
+  
   }
 }
