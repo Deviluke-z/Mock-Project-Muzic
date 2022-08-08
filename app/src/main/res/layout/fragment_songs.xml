@@ -81,8 +81,8 @@
                 android:text="@string/tv_tab_layout_title_4" />
         </com.google.android.material.tabs.TabLayout>
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/songFragmentContainer"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
