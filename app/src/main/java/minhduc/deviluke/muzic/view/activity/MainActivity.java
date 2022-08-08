@@ -34,7 +34,8 @@ import minhduc.deviluke.muzic.view.fragment.songs.SongsFragment;
 public class MainActivity extends AppCompatActivity {
   
   LayoutMainActivityBinding layoutMainActivityBinding;
-  ActivityResultLauncher<String> storagePermission;
+  ActivityResultLauncher<String> mStoragePermissionLauncher;
+  final String mStoragePermission = Manifest.permission.READ_EXTERNAL_STORAGE;
   
   @SuppressLint("NonConstantResourceId")
   @Override
@@ -43,22 +44,18 @@ public class MainActivity extends AppCompatActivity {
     
     layoutMainActivityBinding =
       DataBindingUtil.setContentView(this, R.layout.layout_main_activity);
-  
-  
-    //request for the 1st time
-    storagePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
     // storage permission
-    storagePermission = registerForActivityResult(
-      new ActivityResultContracts.RequestPermission(),
-      result -> {
-        if (result) {
-          // permission was granted
-          fetchSongs();
-        } else {
-          // respond due to user action
-          respondOnPermission();
-        }
-      });
+    mStoragePermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {
+      if (granted) {
+        fetchSongs();
+      } else {
+        respondOnPermission();
+      }
+    });
+
+    // request for the 1st time
+    mStoragePermissionLauncher.launch(mStoragePermission);
     
     // bottom navigation
     loadFragments(new HomeFragment());
@@ -85,51 +82,12 @@ public class MainActivity extends AppCompatActivity {
   }
   
   private void fetchSongs() {
-//    List<SongModel> mListSong = new ArrayList<>();
-//    Uri mSongDatabaseUri;
-//    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-//      mSongDatabaseUri = MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL);
-//    } else {
-//      mSongDatabaseUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
-//    }
-//
-//    // projection
-//    String[] projection = new String[]{
-//      MediaStore.Audio.Media._ID,
-//      MediaStore.Audio.Media.DISPLAY_NAME,
-//      MediaStore.Audio.Media.DURATION,
-//      MediaStore.Audio.Media.SIZE,
-//      MediaStore.Audio.Media.ALBUM
-//    };
-//
-//    // sorting
-//    String mSorting = MediaStore.Audio.Media.DATE_ADDED + " DESC";
-//
-//    // query
-//    try (Cursor cursor = getContentResolver().query(mSongDatabaseUri, projection, null, null)) {
-//
-//    }
   }
   
   private void respondOnPermission() {
-    if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    if (ContextCompat.checkSelfPermission(this, mStoragePermission)
       == PackageManager.PERMISSION_GRANTED) {
       fetchSongs();
-    } else if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-      // show alert dialog
-      new AlertDialog.Builder(this)
-        .setTitle("Permission Needed")
-        .setMessage("Please allow storage permission to fetch the database")
-        .setPositiveButton(
-          "OK",
-          (dialog, which) -> storagePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE))
-        .setNegativeButton(
-          "NO BRO",
-          (dialog, which) -> Toast.makeText(
-            getApplicationContext(),
-            "Oke bro, you deny this app",
-            Toast.LENGTH_SHORT).show())
-        .show();
     } else {
       Toast.makeText(
         getApplicationContext(),
