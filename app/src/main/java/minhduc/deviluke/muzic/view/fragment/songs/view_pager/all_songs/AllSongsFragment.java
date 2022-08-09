@@ -1,26 +1,28 @@
 package minhduc.deviluke.muzic.view.fragment.songs.view_pager.all_songs;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.List;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
-import minhduc.deviluke.muzic.R;
 import minhduc.deviluke.muzic.databinding.FragmentAllSongsBinding;
-import minhduc.deviluke.muzic.model.song.SongModel;
+import minhduc.deviluke.muzic.service.MusicPlayer;
+import minhduc.deviluke.muzic.service.MusicService;
 import minhduc.deviluke.muzic.viewmodel.SongViewModel;
 
-public class AllSongsFragment extends Fragment {
-
+public class AllSongsFragment extends Fragment implements AllSongsAdapter.AllSongAdapterListener {
+  
+  FragmentAllSongsBinding mBindings;
+  AllSongsAdapter mAllSongsAdapter;
+  SongViewModel mSongViewModel;
+  MusicPlayer mMusicPlayer;
+  
   public AllSongsFragment() {
     // Required empty public constructor
   }
@@ -29,17 +31,12 @@ public class AllSongsFragment extends Fragment {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
   }
-
-  FragmentAllSongsBinding mBindings;
-  AllSongsAdapter mAllSongsAdapter;
-  SongViewModel mSongViewModel;
   
   @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                           Bundle savedInstanceState) {
-    
+  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     mBindings = FragmentAllSongsBinding.inflate(inflater, container, false);
     mSongViewModel = new ViewModelProvider(requireActivity()).get(SongViewModel.class);
+    mMusicPlayer = MusicPlayer.getInstance(requireContext());
     initRecycleView();
     setObserver();
     mSongViewModel.fetchSong();
@@ -49,7 +46,7 @@ public class AllSongsFragment extends Fragment {
   }
   
   private void initRecycleView() {
-    mAllSongsAdapter = new AllSongsAdapter();
+    mAllSongsAdapter = new AllSongsAdapter(requireActivity(), this);
     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(
       requireActivity(),
       LinearLayoutManager.VERTICAL,
@@ -65,5 +62,12 @@ public class AllSongsFragment extends Fragment {
         Log.d("Debug", "" + songModels.size());
       }
     );
+  }
+  
+  @Override
+  public void onClickItem(int position) {
+    mMusicPlayer.setPosition(position);
+    Intent intent = new Intent(requireActivity(), MusicService.class);
+    requireActivity().startService(intent);
   }
 }

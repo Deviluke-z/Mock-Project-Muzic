@@ -4,8 +4,10 @@
     package="minhduc.deviluke.muzic">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
+        android:name=".service.MusicNotification"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -25,6 +27,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.MainActivity" />
+
+        <service android:name=".service.MusicService" />
     </application>
 
 </manifest>

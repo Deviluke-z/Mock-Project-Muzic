@@ -17,16 +17,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import minhduc.deviluke.muzic.model.song.SongModel;
+import minhduc.deviluke.muzic.service.MusicPlayer;
+import minhduc.deviluke.muzic.view.fragment.songs.view_pager.all_songs.AllSongsAdapter;
 
 // to query songs
 public class SongViewModel extends AndroidViewModel {
   
   private final MutableLiveData<List<SongModel>> mLiveDataListSong = new MutableLiveData<>();
   
+  private MusicPlayer mMusicPlayer = MusicPlayer.getInstance(getApplication());
+  
   public SongViewModel(@NonNull Application application) {
     super(application);
   }
   
+  // 1. query all songs in device + init list song to Music Player
   public void fetchSong() {
     Uri mMediaStoreUri;
     List<SongModel> mListSong = new ArrayList<>();
@@ -75,10 +80,10 @@ public class SongViewModel extends AndroidViewModel {
         Uri songUri = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, mSongId);
         
         // song thumbnail
-//        Uri thumbnailUri = ContentUris.withAppendedId(Uri.parse("content://media/external/audio/thumbnail"), mSongThumbnail);
+//        Uri thumbnailUri = ContentUris.withAppendedId(Uri.parse("content://media/external/audio/albums"), mSongThumbnail);
         
         // song title
-        mSongTitle = mSongTitle.substring(0, mSongTitle.lastIndexOf("."));
+        mSongTitle = mSongTitle.substring(0, mSongTitle.lastIndexOf(" -"));
         
         // song
         SongModel songModel = new SongModel(mSongTitle, mSongArtist, songUri, mSongDuration, mSongSize);
@@ -87,13 +92,19 @@ public class SongViewModel extends AndroidViewModel {
         mListSong.add(songModel);
         Log.d("Debug", mSongTitle);
       }
+      cursor.close();
+      
+      // create list song for Music Player
+      mMusicPlayer.initListSong(mListSong);
+      
       // post value
-      Log.d("Debug", "" + mListSong.size());
       mLiveDataListSong.postValue(mListSong);
+      Log.d("Debug", "" + mListSong.size());
     }
   }
   
   public LiveData<List<SongModel>> getLiveDataListSong() {
     return mLiveDataListSong;
   }
+  // end 1
 }

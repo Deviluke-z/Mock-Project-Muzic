@@ -7,7 +7,7 @@ import android.os.Build;
 
 public class MusicNotification extends Application {
 
-  private static final String NOTIFICATION_MUSIC_CHANNEL = "Music Notification";
+  public static final String NOTIFICATION_MUSIC_CHANNEL = "Music Notification";
 
   @Override
   public void onCreate() {

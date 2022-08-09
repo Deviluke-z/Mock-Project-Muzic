@@ -1,6 +1,7 @@
 package minhduc.deviluke.muzic.view.fragment.songs.view_pager.all_songs;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -15,11 +16,23 @@ import java.util.List;
 import minhduc.deviluke.muzic.R;
 import minhduc.deviluke.muzic.databinding.ItemRecentPlayedBinding;
 import minhduc.deviluke.muzic.model.song.SongModel;
+import minhduc.deviluke.muzic.viewmodel.SongViewModel;
 
 public class AllSongsAdapter extends RecyclerView.Adapter<AllSongsAdapter.ViewHolder> {
   
   LayoutInflater layoutInflater;
   private List<SongModel> mListSong = new ArrayList<>();
+  private Context mContext;
+  
+  private AllSongAdapterListener adapterListener;
+  
+  public AllSongsAdapter() {
+  }
+  
+  public AllSongsAdapter(Context mContext, AllSongAdapterListener adapterListener) {
+    this.mContext = mContext;
+    this.adapterListener = adapterListener;
+  }
   
   @NonNull
   @Override
@@ -43,6 +56,10 @@ public class AllSongsAdapter extends RecyclerView.Adapter<AllSongsAdapter.ViewHo
     SongModel songModel = mListSong.get(position);
     holder.mBindings.tvSongTitle.setText(songModel.getTitle());
     holder.mBindings.tvSongArtist.setText(songModel.getArtist());
+    
+    holder.mBindings.ivPlay.setOnClickListener( v -> {
+      adapterListener.onClickItem(position);
+    });
   }
   
   @Override
@@ -68,5 +85,9 @@ public class AllSongsAdapter extends RecyclerView.Adapter<AllSongsAdapter.ViewHo
       super(binding.getRoot());
       this.mBindings = binding;
     }
+  }
+  
+  public interface AllSongAdapterListener {
+    void onClickItem(int position);
   }
 }
