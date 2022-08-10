@@ -2,6 +2,8 @@ package minhduc.deviluke.muzic.view.fragment.songs.view_pager.all_songs;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,13 +25,19 @@ public class AllSongsFragment extends Fragment implements AllSongsAdapter.AllSon
   SongViewModel mSongViewModel;
   MusicPlayer mMusicPlayer;
   
+  HandlerThread handlerThread = new HandlerThread("Music Service");
+  Handler handler;
+  
   public AllSongsFragment() {
     // Required empty public constructor
   }
-
+  
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    
+    handlerThread.start();
+    handler = new Handler(handlerThread.getLooper());
   }
   
   @Override
@@ -67,7 +75,13 @@ public class AllSongsFragment extends Fragment implements AllSongsAdapter.AllSon
   @Override
   public void onClickItem(int position) {
     mMusicPlayer.setPosition(position);
-    Intent intent = new Intent(requireActivity(), MusicService.class);
-    requireActivity().startService(intent);
+    
+    handler.post(new Runnable() {
+      @Override
+      public void run() {
+        Intent intent = new Intent(requireActivity(), MusicService.class);
+        requireActivity().startService(intent);
+      }
+    });
   }
 }
