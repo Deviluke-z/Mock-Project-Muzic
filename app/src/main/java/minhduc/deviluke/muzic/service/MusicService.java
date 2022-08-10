@@ -54,7 +54,7 @@ public class MusicService extends Service {
   private void handleAction(int action) {
     switch (action) {
       case ACTION_PLAY:
-        musicPlayer.play(mListSong.get(musicPlayer.getPosition()).getUri());
+        musicPlayer.continuePlay();
         break;
       case ACTION_PAUSE:
         musicPlayer.pause();

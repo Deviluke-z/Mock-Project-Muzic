@@ -83,7 +83,7 @@ public class SongViewModel extends AndroidViewModel {
 //        Uri thumbnailUri = ContentUris.withAppendedId(Uri.parse("content://media/external/audio/albums"), mSongThumbnail);
         
         // song title
-        mSongTitle = mSongTitle.substring(0, mSongTitle.lastIndexOf(" -"));
+//        mSongTitle = mSongTitle.substring(0, mSongTitle.lastIndexOf("."));
         
         // song
         SongModel songModel = new SongModel(mSongTitle, mSongArtist, songUri, mSongDuration, mSongSize);
