@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import minhduc.deviluke.muzic.R;
+import minhduc.deviluke.muzic.databinding.ItemAllSongsBinding;
 import minhduc.deviluke.muzic.databinding.ItemRecentPlayedBinding;
 import minhduc.deviluke.muzic.model.song.SongModel;
 import minhduc.deviluke.muzic.viewmodel.SongViewModel;
@@ -42,9 +43,9 @@ public class AllSongsAdapter extends RecyclerView.Adapter<AllSongsAdapter.ViewHo
       layoutInflater = LayoutInflater.from(parent.getContext());
     }
     
-    ItemRecentPlayedBinding binding = DataBindingUtil.inflate(
+    ItemAllSongsBinding binding = DataBindingUtil.inflate(
       layoutInflater,
-      R.layout.item_recent_played,
+      R.layout.item_all_songs,
       parent,
       false
     );
@@ -60,14 +61,15 @@ public class AllSongsAdapter extends RecyclerView.Adapter<AllSongsAdapter.ViewHo
 
     Uri thumbnailUri = songModel.getThumbnailUri();
     if (thumbnailUri != null) {
-      holder.mBindings.ivPlay.setImageURI(thumbnailUri);
+      holder.mBindings.ivSongThumbnail.setImageURI(thumbnailUri);
 
       // make sure every song has thumbnail
-      if (holder.mBindings.ivPlay.getDrawable() == null) {
-        holder.mBindings.ivPlay.setImageResource(R.drawable.ic_baseline_play_circle_outline_24);
+      if (holder.mBindings.ivSongThumbnail.getDrawable() == null) {
+        holder.mBindings.ivSongThumbnail.setImageResource(R.drawable.ic_baseline_play_circle_outline_24);
       }
     }
     
+    // click on play button to start music
     holder.mBindings.ivPlay.setOnClickListener( v -> adapterListener.onClickItem(position));
   }
   
@@ -88,9 +90,9 @@ public class AllSongsAdapter extends RecyclerView.Adapter<AllSongsAdapter.ViewHo
   
   public class ViewHolder extends RecyclerView.ViewHolder {
     
-    ItemRecentPlayedBinding mBindings;
+    ItemAllSongsBinding mBindings;
     
-    public ViewHolder(@NonNull ItemRecentPlayedBinding binding) {
+    public ViewHolder(@NonNull ItemAllSongsBinding binding) {
       super(binding.getRoot());
       this.mBindings = binding;
     }

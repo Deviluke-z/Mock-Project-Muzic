@@ -54,7 +54,7 @@ public class MusicPlayer {
     this.position = position;
 
     mCurrentSong = mListSong.get(position);
-    play(mListSong.get(position).getUri());
+    play(mCurrentSong.getUri());
   }
 
   public void play(Uri songUri) {
@@ -85,7 +85,7 @@ public class MusicPlayer {
   }
 
   public void next() {
-    if (mListSong.indexOf(mCurrentSong) == mListSong.size()) {
+    if (mListSong.indexOf(mCurrentSong) == mListSong.size() - 1) {
       mMediaPlayer.reset();
       setPosition(0);
     } else {
@@ -97,7 +97,7 @@ public class MusicPlayer {
   public void previous() {
     if (mListSong.indexOf(mCurrentSong) == 0) {
       mMediaPlayer.reset();
-      setPosition(mListSong.size());
+      setPosition(mListSong.size() - 1);
     } else {
       mMediaPlayer.reset();
       setPosition(mListSong.indexOf(mCurrentSong) - 1);
