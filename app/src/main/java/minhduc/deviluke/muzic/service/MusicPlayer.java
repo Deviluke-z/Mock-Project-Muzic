@@ -12,11 +12,12 @@ import java.util.List;
 import minhduc.deviluke.muzic.model.song.SongModel;
 
 public class MusicPlayer {
+
   private static MusicPlayer instance;
   public int position = 0;
+  public SongModel mCurrentSong;
   private MediaPlayer mMediaPlayer;
   private Context mContext;
-
   private List<SongModel> mListSong = new ArrayList<>();
 
   private MusicPlayer(Context context) {
@@ -36,6 +37,11 @@ public class MusicPlayer {
     this.mListSong = mListSong;
   }
 
+  // in-progress
+  private void resetListSong(List<SongModel> mListSong) {
+    mListSong.clear();
+  }
+
   public List<SongModel> setListSong() {
     return mListSong;
   }
@@ -46,11 +52,12 @@ public class MusicPlayer {
 
   public void setPosition(int position) {
     this.position = position;
+
+    mCurrentSong = mListSong.get(position);
     play(mListSong.get(position).getUri());
   }
 
   public void play(Uri songUri) {
-
     try {
       mMediaPlayer.reset();
       mMediaPlayer.setDataSource(mContext, songUri);
@@ -59,14 +66,13 @@ public class MusicPlayer {
     } catch (IOException e) {
       e.printStackTrace();
     }
-
   }
 
   public void continuePlay() {
     if (!mMediaPlayer.isPlaying()) {
       mMediaPlayer.start();
     } else {
-      Toast.makeText(mContext, "Nothing is playing at the present", Toast.LENGTH_SHORT).show();
+      Toast.makeText(mContext, "A song is playing at the present", Toast.LENGTH_SHORT).show();
     }
   }
 
@@ -79,9 +85,23 @@ public class MusicPlayer {
   }
 
   public void next() {
+    if (mListSong.indexOf(mCurrentSong) == mListSong.size()) {
+      mMediaPlayer.reset();
+      setPosition(0);
+    } else {
+      mMediaPlayer.reset();
+      setPosition(mListSong.indexOf(mCurrentSong) + 1);
+    }
   }
 
   public void previous() {
+    if (mListSong.indexOf(mCurrentSong) == 0) {
+      mMediaPlayer.reset();
+      setPosition(mListSong.size());
+    } else {
+      mMediaPlayer.reset();
+      setPosition(mListSong.indexOf(mCurrentSong) - 1);
+    }
   }
 
   public void stop() {

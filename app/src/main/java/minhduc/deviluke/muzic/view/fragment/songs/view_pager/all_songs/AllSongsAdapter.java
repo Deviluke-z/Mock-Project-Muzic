@@ -2,6 +2,7 @@ package minhduc.deviluke.muzic.view.fragment.songs.view_pager.all_songs;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -56,10 +57,18 @@ public class AllSongsAdapter extends RecyclerView.Adapter<AllSongsAdapter.ViewHo
     SongModel songModel = mListSong.get(position);
     holder.mBindings.tvSongTitle.setText(songModel.getTitle());
     holder.mBindings.tvSongArtist.setText(songModel.getArtist());
+
+    Uri thumbnailUri = songModel.getThumbnailUri();
+    if (thumbnailUri != null) {
+      holder.mBindings.ivPlay.setImageURI(thumbnailUri);
+
+      // make sure every song has thumbnail
+      if (holder.mBindings.ivPlay.getDrawable() == null) {
+        holder.mBindings.ivPlay.setImageResource(R.drawable.ic_baseline_play_circle_outline_24);
+      }
+    }
     
-    holder.mBindings.ivPlay.setOnClickListener( v -> {
-      adapterListener.onClickItem(position);
-    });
+    holder.mBindings.ivPlay.setOnClickListener( v -> adapterListener.onClickItem(position));
   }
   
   @Override
