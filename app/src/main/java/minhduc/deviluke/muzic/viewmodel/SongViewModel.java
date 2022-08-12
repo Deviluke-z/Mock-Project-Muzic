@@ -77,23 +77,23 @@ public class SongViewModel extends AndroidViewModel {
 
         // song uri
         Uri songUri = ContentUris.withAppendedId(
-            MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
-            mSongId
+            MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, mSongId
         );
 
         // song thumbnail
         Uri thumbnailUri = ContentUris.withAppendedId(
-            Uri.parse("content://media/external/audio/albumart"),
-            mSongThumbnail
-        );
-
-        // song
-        SongModel songModel = new SongModel(
-            mSongTitle, mSongArtist, songUri, thumbnailUri, mSongDuration, mSongSize
+            Uri.parse("content://media/external/audio/albumart"), mSongThumbnail
         );
 
         // add song to list
-        mListSong.add(songModel);
+        // logic: if duration > 1 minute -> songs
+        if (mSongDuration > 60000) {
+          SongModel songModel = new SongModel(
+              mSongTitle, mSongArtist, songUri, thumbnailUri, mSongDuration, mSongSize
+          );
+          mListSong.add(songModel);
+        }
+
         Log.d("Debug", mSongTitle);
       }
       cursor.close();
