@@ -42,6 +42,7 @@
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/menu/menu_bottom_nav.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/menu/menu_drawer.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Muzic/app/src/main/res/menu/menu_navigation_view.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/Acer/Mock-Project-Muzic/app/src/main/res/drawable/bg_gradient_media_controller.xml" value="0.1995" />
         <entry key="..\:/Users/Acer/Mock-Project-Muzic/app/src/main/res/drawable/bottom_nav_home_color.xml" value="0.1995" />
         <entry key="..\:/Users/Acer/Mock-Project-Muzic/app/src/main/res/drawable/ic_advanced_gradient.xml" value="0.1995" />
         <entry key="..\:/Users/Acer/Mock-Project-Muzic/app/src/main/res/drawable/ic_app.xml" value="0.1995" />
@@ -73,7 +74,8 @@
         <entry key="..\:/Users/Acer/Mock-Project-Muzic/app/src/main/res/layout/item_sample.xml" value="0.25" />
         <entry key="..\:/Users/Acer/Mock-Project-Muzic/app/src/main/res/layout/layout_intro.xml" value="0.25" />
         <entry key="..\:/Users/Acer/Mock-Project-Muzic/app/src/main/res/layout/layout_main_activity.xml" value="0.25" />
-        <entry key="..\:/Users/Acer/Mock-Project-Muzic/app/src/main/res/layout/layout_notification.xml" value="0.25" />
+        <entry key="..\:/Users/Acer/Mock-Project-Muzic/app/src/main/res/layout/layout_media_controller.xml" value="0.4" />
+        <entry key="..\:/Users/Acer/Mock-Project-Muzic/app/src/main/res/layout/layout_notification.xml" value="0.536" />
         <entry key="..\:/Users/Acer/Mock-Project-Muzic/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25" />
         <entry key="..\:/Users/Acer/Mock-Project-Muzic/app/src/main/res/menu/menu_bottom_nav.xml" value="0.25" />
         <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/drawable/bg_circle.xml" value="0.2805" />

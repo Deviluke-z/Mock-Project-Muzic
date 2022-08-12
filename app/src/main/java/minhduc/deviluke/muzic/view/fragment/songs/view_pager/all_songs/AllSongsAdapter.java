@@ -16,43 +16,41 @@ import java.util.List;
 
 import minhduc.deviluke.muzic.R;
 import minhduc.deviluke.muzic.databinding.ItemAllSongsBinding;
-import minhduc.deviluke.muzic.databinding.ItemRecentPlayedBinding;
 import minhduc.deviluke.muzic.model.song.SongModel;
-import minhduc.deviluke.muzic.viewmodel.SongViewModel;
 
 public class AllSongsAdapter extends RecyclerView.Adapter<AllSongsAdapter.ViewHolder> {
-  
+
   LayoutInflater layoutInflater;
   private List<SongModel> mListSong = new ArrayList<>();
   private Context mContext;
-  
-  private AllSongAdapterListener adapterListener;
-  
+
+  private CallbackOnMainActivity callbackOnMainActivity;
+
   public AllSongsAdapter() {
   }
-  
-  public AllSongsAdapter(Context mContext, AllSongAdapterListener adapterListener) {
+
+  public AllSongsAdapter(Context mContext, CallbackOnMainActivity callbackOnMainActivity) {
     this.mContext = mContext;
-    this.adapterListener = adapterListener;
+    this.callbackOnMainActivity = callbackOnMainActivity;
   }
-  
+
   @NonNull
   @Override
   public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
     if (layoutInflater == null) {
       layoutInflater = LayoutInflater.from(parent.getContext());
     }
-    
+
     ItemAllSongsBinding binding = DataBindingUtil.inflate(
-      layoutInflater,
-      R.layout.item_all_songs,
-      parent,
-      false
+        layoutInflater,
+        R.layout.item_all_songs,
+        parent,
+        false
     );
-    
+
     return new ViewHolder(binding);
   }
-  
+
   @Override
   public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
     SongModel songModel = mListSong.get(position);
@@ -68,11 +66,13 @@ public class AllSongsAdapter extends RecyclerView.Adapter<AllSongsAdapter.ViewHo
         holder.mBindings.ivSongThumbnail.setImageResource(R.drawable.ic_baseline_play_circle_outline_24);
       }
     }
-    
+
     // click on play button to start music
-    holder.mBindings.ivPlay.setOnClickListener( v -> adapterListener.onClickItem(position));
+    holder.mBindings.ivPlay.setOnClickListener(v -> {
+      callbackOnMainActivity.onClickItem(position);
+    });
   }
-  
+
   @Override
   public int getItemCount() {
     Log.d("Debug", "Apdater: " + mListSong.size());
@@ -81,24 +81,24 @@ public class AllSongsAdapter extends RecyclerView.Adapter<AllSongsAdapter.ViewHo
     }
     return mListSong.size();
   }
-  
+
   @SuppressLint("NotifyDataSetChanged")
   public void initData(List<SongModel> mListSong) {
     this.mListSong = mListSong;
     notifyDataSetChanged();
   }
-  
-  public class ViewHolder extends RecyclerView.ViewHolder {
-    
+
+  public interface CallbackOnMainActivity {
+    void onClickItem(int position);
+  }
+
+  public static class ViewHolder extends RecyclerView.ViewHolder {
+
     ItemAllSongsBinding mBindings;
-    
+
     public ViewHolder(@NonNull ItemAllSongsBinding binding) {
       super(binding.getRoot());
       this.mBindings = binding;
     }
-  }
-  
-  public interface AllSongAdapterListener {
-    void onClickItem(int position);
   }
 }

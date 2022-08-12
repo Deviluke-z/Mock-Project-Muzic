@@ -86,8 +86,8 @@ public class SongViewModel extends AndroidViewModel {
         );
 
         // add song to list
-        // logic: if duration > 1 minute -> songs
-        if (mSongDuration > 60000) {
+        // logic: if duration > 30 seconds -> songs
+        if (mSongDuration > 30000) {
           SongModel songModel = new SongModel(
               mSongTitle, mSongArtist, songUri, thumbnailUri, mSongDuration, mSongSize
           );

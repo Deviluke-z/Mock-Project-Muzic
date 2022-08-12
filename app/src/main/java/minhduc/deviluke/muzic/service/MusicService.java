@@ -29,7 +29,6 @@ public class MusicService extends Service {
 
   private MusicPlayer mMusicPlayer;
   private List<SongModel> mListSong;
-  private SongModel mCurrentSong;
 
   @Override
   public void onCreate() {
@@ -45,7 +44,7 @@ public class MusicService extends Service {
     int action = intent.getIntExtra(ACTION_NAME, -1);
     handleAction(action);
 
-    mCurrentSong = mListSong.get(mMusicPlayer.getPosition());
+    SongModel mCurrentSong = mListSong.get(mMusicPlayer.getPosition());
     createNotification(mCurrentSong);
 
     Log.d("Debug", "Start Service");

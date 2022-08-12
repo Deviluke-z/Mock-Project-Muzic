@@ -16,6 +16,12 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
+        <include
+            android:id="@+id/mediaController"
+            layout="@layout/layout_media_controller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigation"
             android:layout_width="match_parent"
