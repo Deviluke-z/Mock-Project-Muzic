@@ -28,7 +28,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="10"
                 android:gravity="center"
-                android:text="@string/tv_settings"
+                android:text="@string/item_songs"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="24sp" />
