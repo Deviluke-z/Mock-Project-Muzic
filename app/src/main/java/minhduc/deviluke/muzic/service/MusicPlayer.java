@@ -13,7 +13,7 @@ import minhduc.deviluke.muzic.model.song.SongModel;
 
 public class MusicPlayer {
 
-  private static MusicPlayer instance;
+  public static MusicPlayer instance;
   public int position = 0;
   public SongModel mCurrentSong;
   private MediaPlayer mMediaPlayer;
