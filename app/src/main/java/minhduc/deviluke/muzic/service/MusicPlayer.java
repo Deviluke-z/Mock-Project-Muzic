@@ -41,6 +41,10 @@ public class MusicPlayer {
   private void resetListSong(List<SongModel> mListSong) {
     mListSong.clear();
   }
+  
+  public boolean isPlaying() {
+    return mMediaPlayer.isPlaying();
+  }
 
   public List<SongModel> setListSong() {
     return mListSong;
