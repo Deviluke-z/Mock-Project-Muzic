@@ -2,7 +2,9 @@ package minhduc.deviluke.muzic.view.activity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -14,15 +16,20 @@ import androidx.fragment.app.FragmentTransaction;
 
 import minhduc.deviluke.muzic.R;
 import minhduc.deviluke.muzic.databinding.LayoutMainActivityBinding;
+import minhduc.deviluke.muzic.service.MusicPlayer;
 import minhduc.deviluke.muzic.view.fragment.home.HomeFragment;
 import minhduc.deviluke.muzic.view.fragment.settings.SettingsFragment;
 import minhduc.deviluke.muzic.view.fragment.songs.SongsFragment;
+import minhduc.deviluke.muzic.view.fragment.songs.view_pager.all_songs.ActivityCallback;
+import minhduc.deviluke.muzic.view.fragment.songs.view_pager.all_songs.AllSongsAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AllSongsAdapter.CallbackOnMainActivity,
+    ActivityCallback {
 
   final String mStoragePermission = Manifest.permission.READ_EXTERNAL_STORAGE;
   LayoutMainActivityBinding layoutMainActivityBinding;
   ActivityResultLauncher<String> mStoragePermissionLauncher;
+  private MusicPlayer mMusicPlayer;
 
   @SuppressLint("NonConstantResourceId")
   @Override
@@ -64,13 +71,47 @@ public class MainActivity extends AppCompatActivity {
           loadFragments(fragment);
           break;
       }
+
       return false;
     });
+
+    mMusicPlayer = MusicPlayer.getInstance(this);
+
+    layoutMainActivityBinding.mediaController.godFather.setVisibility(View.GONE);
   }
 
   private void loadFragments(Fragment fragment) {
     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
     transaction.replace(R.id.fragmentContainerView, fragment);
     transaction.addToBackStack(null).commit();
+  }
+
+
+  @Override
+  public void onClickItem(int position) {
+    layoutMainActivityBinding.mediaController.godFather.setVisibility(View.VISIBLE);
+
+    layoutMainActivityBinding.mediaController.tvSongTitle.setText(
+        mMusicPlayer.setListSong().get(position).getTitle()
+    );
+
+    layoutMainActivityBinding.mediaController.tvSongArtist.setText(
+        mMusicPlayer.setListSong().get(position).getArtist()
+    );
+
+    Uri thumbnailUri = mMusicPlayer.setListSong().get(mMusicPlayer.getPosition()).getThumbnailUri();
+    if (thumbnailUri != null) {
+      layoutMainActivityBinding.mediaController.ivSongThumbnail.setImageURI(thumbnailUri);
+
+      // make sure every song has thumbnail
+      if (layoutMainActivityBinding.mediaController.ivSongThumbnail.getDrawable() == null) {
+        layoutMainActivityBinding.mediaController.ivSongThumbnail.setImageResource(R.drawable.ic_baseline_play_circle_outline_24);
+      }
+    }
+  }
+
+  @Override
+  public void onSongClick(int position) {
+    onClickItem(position);
   }
 }
