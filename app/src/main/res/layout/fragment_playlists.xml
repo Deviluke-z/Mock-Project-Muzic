@@ -1,56 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/color_main_theme"
-    android:orientation="vertical"
-    tools:context=".view.fragment.songs.view_pager.playlists.PlaylistsFragment">
+<layout>
 
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.recyclerview.widget.RecyclerView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:background="@color/color_main_theme"
         android:orientation="vertical"
-        app:layoutManager="GridLayoutManager"
-        app:spanCount="2"
-        tools:listitem="@layout/item_sample_image_playlist_view_pager" />
+        tools:context=".view.fragment.songs.view_pager.playlists.PlaylistsFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <!-- TODO: Update blank fragment layout -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFakePlaylist"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
             android:layout_marginTop="@dimen/dp10"
-            android:layout_weight="1"
-            android:text="@string/tv_home_scr_title_2"
-            android:textColor="@color/white"
-            android:textSize="@dimen/sp16" />
+            android:layout_marginBottom="@dimen/dp10"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:listitem="@layout/item_fake_playlist_view_pager" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
-            android:layout_weight="1"
-            android:text="@string/tv_viewall"
-            android:textAlignment="viewEnd"
-            android:textColor="@color/middle_red"
-            android:textSize="@dimen/sp16" />
+            android:layout_margin="@dimen/dp10"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/tv_home_scr_title_2"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/tv_viewall"
+                android:textAlignment="viewEnd"
+                android:textColor="@color/middle_red"
+                android:textSize="@dimen/sp16" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPlaylist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp10"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_playlist_sample" />
     </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvPlaylist"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_playlist_sample" />
-
-
-
-</LinearLayout>
+</layout>

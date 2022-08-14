@@ -12,7 +12,6 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import minhduc.deviluke.muzic.R;
@@ -40,7 +39,7 @@ public class HomeFragment extends Fragment {
     mBindings.ivMenu.setOnClickListener(v -> mBindings.drawerLayout.openDrawer(GravityCompat.START));
 
     // setup fake Hot Recommend recycler view
-    SampleItemModel sampleItemModel1 = new SampleItemModel(R.drawable.ic_sample_song);
+    SampleItemModel sampleItemModel1 = new SampleItemModel(R.drawable.img_sample_song);
     for (int i = 0; i < 5; i++) {
       mSampleItemList1.add(sampleItemModel1);
     }
@@ -55,7 +54,7 @@ public class HomeFragment extends Fragment {
     mBindings.rvHotRecommend.setAdapter(mHotRecommendAdapter);
 
     // setup fake Playlist recycler view
-    SampleItemModel sampleItemModel2 = new SampleItemModel(R.drawable.ic_sample_playlist);
+    SampleItemModel sampleItemModel2 = new SampleItemModel(R.drawable.img_sample_playlist);
 
     for (int i = 0; i < 7; i++) {
       mSampleItemList2.add(sampleItemModel2);

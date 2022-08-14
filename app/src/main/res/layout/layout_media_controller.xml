@@ -18,7 +18,7 @@
             android:padding="@dimen/dp5"
             app:civ_border_color="@color/black"
             app:civ_border_width="1dp"
-            tools:src="@drawable/ic_sample_playlist" />
+            tools:src="@drawable/img_sample_playlist" />
 
         <LinearLayout
             android:layout_width="0dp"

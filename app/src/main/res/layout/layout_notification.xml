@@ -17,7 +17,7 @@
             android:id="@+id/ivSongThumbnailNotification"
             android:layout_width="@dimen/dp50"
             android:layout_height="@dimen/dp50"
-            tools:src="@drawable/ic_sample_playlist" />
+            tools:src="@drawable/img_sample_playlist" />
 
         <LinearLayout
             android:layout_width="match_parent"
