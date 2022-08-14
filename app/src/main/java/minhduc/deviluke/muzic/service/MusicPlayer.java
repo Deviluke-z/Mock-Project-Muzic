@@ -24,6 +24,7 @@ public class MusicPlayer {
   private List<SongModel> mListSong = new ArrayList<>();
   private MutableLiveData<List<SongModel>> mListLiveDataRecentPlay = new MutableLiveData<>();
   private List<SongModel> mListRecentPlay;
+  private Callbacks callbacks;
   
   private MusicPlayer(Context context) {
     this.mContext = context;
@@ -36,6 +37,10 @@ public class MusicPlayer {
       instance = new MusicPlayer(context);
     }
     return instance;
+  }
+  
+  public void setCallbacks(Callbacks callbacks) {
+    this.callbacks = callbacks;
   }
   
   public MutableLiveData<List<SongModel>> getListRecentPlay() {
@@ -136,5 +141,16 @@ public class MusicPlayer {
   
   public int getRealTimeDuration() {
     return mMediaPlayer.getCurrentPosition();
+  }
+  
+  public void onCompletion() {
+    mMediaPlayer.setOnCompletionListener(mp -> {
+      next();
+      callbacks.UpdateUIFromPlayer();
+    });
+  }
+  
+  public interface Callbacks {
+    void UpdateUIFromPlayer();
   }
 }

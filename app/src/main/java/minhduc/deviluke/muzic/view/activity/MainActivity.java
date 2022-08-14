@@ -36,7 +36,8 @@ import minhduc.deviluke.muzic.view.fragment.songs.view_pager.all_songs.MainActiv
 public class MainActivity extends AppCompatActivity
   implements AllSongsAdapter.CallbackOnMainActivity,
   MusicService.OnNotificationClick,
-  MainActivityCallback {
+  MainActivityCallback,
+  MusicPlayer.Callbacks {
   
   final String mStoragePermission = Manifest.permission.READ_EXTERNAL_STORAGE;
   ActivityResultLauncher<String> mStoragePermissionLauncher;
@@ -107,6 +108,7 @@ public class MainActivity extends AppCompatActivity
     });
     
     mMusicPlayer = MusicPlayer.getInstance(this);
+    mMusicPlayer.setCallbacks(this);
     
     // service on worker thread
     handlerThread.start();
@@ -165,7 +167,10 @@ public class MainActivity extends AppCompatActivity
   }
   
   private void handlerSeekBarUpdate() {
-    runOnUiThread(() -> layoutMainActivityBinding.seekBar.setProgress(mMusicPlayer.getRealTimeDuration()));
+    runOnUiThread(() -> {
+      layoutMainActivityBinding.seekBar.setProgress(mMusicPlayer.getRealTimeDuration());
+      mMusicPlayer.onCompletion();
+    });
     handler.postDelayed(this::handlerSeekBarUpdate, 1);
   }
   
@@ -255,5 +260,11 @@ public class MainActivity extends AppCompatActivity
     super.onDestroy();
     // no needed anymore
     // unbindService(serviceConnection);
+  }
+  
+  @Override
+  public void UpdateUIFromPlayer() {
+    UpdateMediaControllerUI(mMusicPlayer.getPosition());
+    mMusicService.createNotification(mMusicPlayer.mCurrentSong);
   }
 }
