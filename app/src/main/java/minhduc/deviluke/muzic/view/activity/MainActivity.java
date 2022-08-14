@@ -20,9 +20,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 
 import minhduc.deviluke.muzic.R;
 import minhduc.deviluke.muzic.databinding.LayoutMainActivityBinding;
+import minhduc.deviluke.muzic.model.song.SongModel;
 import minhduc.deviluke.muzic.service.MusicPlayer;
 import minhduc.deviluke.muzic.service.MusicService;
 import minhduc.deviluke.muzic.view.fragment.home.HomeFragment;
@@ -40,14 +42,23 @@ public class MainActivity extends AppCompatActivity
   ActivityResultLauncher<String> mStoragePermissionLauncher;
   
   LayoutMainActivityBinding layoutMainActivityBinding;
-  
-  private MusicPlayer mMusicPlayer;
-  private MusicService mMusicService;
-  
   HandlerThread handlerThread = new HandlerThread("Music Service");
   Handler handler;
-  
-  private boolean bound = false;
+  private MusicPlayer mMusicPlayer;
+  private ServiceConnection serviceConnection = new ServiceConnection() {
+    @Override
+    public void onServiceConnected(ComponentName name, IBinder service) {
+      Log.i("Debug_MainActivity", "onServiceConnected: ");
+      MusicService.LocalBinder binder = (MusicService.LocalBinder) service;
+      MusicService mMusicService = binder.getServices();
+      mMusicService.setServiceCallback(MainActivity.this);
+    }
+    
+    @Override
+    public void onServiceDisconnected(ComponentName name) {
+      Log.i("Debug_MainActivity", "onServiceDisconnected: ");
+    }
+  };
   
   @SuppressLint("NonConstantResourceId")
   @Override
@@ -89,14 +100,13 @@ public class MainActivity extends AppCompatActivity
           loadFragments(fragment);
           break;
       }
-      
       return false;
     });
     
     mMusicPlayer = MusicPlayer.getInstance(this);
     
     layoutMainActivityBinding.mediaController.godFather.setVisibility(View.GONE);
-  
+    
     handlerThread.start();
     handler = new Handler(handlerThread.getLooper());
   }
@@ -107,13 +117,12 @@ public class MainActivity extends AppCompatActivity
     transaction.addToBackStack(null).commit();
   }
   
-  
   @Override
   public void onClickItem(int position) {
     layoutMainActivityBinding.mediaController.godFather.setVisibility(View.VISIBLE);
     
     UpdateMediaControllerUI(position);
-  
+    
     handler.post(new Runnable() {
       @Override
       public void run() {
@@ -123,23 +132,6 @@ public class MainActivity extends AppCompatActivity
       }
     });
   }
-  
-  private ServiceConnection serviceConnection = new ServiceConnection() {
-    @Override
-    public void onServiceConnected(ComponentName name, IBinder service) {
-      Log.i("Debug_MainActivity", "onServiceConnected: ");
-      MusicService.LocalBinder binder = (MusicService.LocalBinder) service;
-      mMusicService = binder.getServices();
-      bound = true;
-      mMusicService.setServiceCallback(MainActivity.this);
-    }
-    
-    @Override
-    public void onServiceDisconnected(ComponentName name) {
-      bound = false;
-      Log.i("Debug_MainActivity", "onServiceDisconnected: ");
-    }
-  };
   
   @SuppressLint("UseCompatLoadingForDrawables")
   private void UpdateMediaControllerUI(int position) {
@@ -162,7 +154,7 @@ public class MainActivity extends AppCompatActivity
         );
       }
     }
-  
+    
     layoutMainActivityBinding.mediaController.ivPlayPause.setImageResource(R.drawable.ic_baseline_pause_circle_outline_24);
   }
   

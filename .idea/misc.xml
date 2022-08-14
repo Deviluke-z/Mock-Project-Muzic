@@ -79,16 +79,21 @@
         <entry key="..\:/Users/Acer/Mock-Project-Muzic/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25" />
         <entry key="..\:/Users/Acer/Mock-Project-Muzic/app/src/main/res/menu/menu_bottom_nav.xml" value="0.25" />
         <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/drawable/bg_circle.xml" value="0.2805" />
+        <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/drawable/bottom_nav_home_color.xml" value="0.2805" />
+        <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/drawable/bottom_nav_setting_color.xml" value="0.2805" />
+        <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/drawable/bottom_nav_song_color.xml" value="0.2805" />
         <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/drawable/round_bg.xml" value="0.2805" />
         <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/layout/fragment_all_songs.xml" value="0.33" />
         <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/layout/fragment_home.xml" value="0.3509963768115942" />
         <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/layout/fragment_playlists.xml" value="0.3625" />
-        <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/layout/fragment_songs.xml" value="0.3509963768115942" />
+        <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/layout/fragment_songs.xml" value="0.22" />
         <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/layout/item_all_songs.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/layout/item_playlist_sample.xml" value="0.3625" />
         <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/layout/item_playlist_view_pager.xml" value="0.3614583333333333" />
-        <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/layout/item_recent_played.xml" value="0.67" />
+        <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/layout/item_recent_played.xml" value="0.22" />
+        <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/layout/layout_main_activity.xml" value="0.3625" />
         <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/layout/layout_notification.xml" value="0.3625" />
+        <entry key="..\:/Users/Admin/Mock-Project-Muzic/app/src/main/res/menu/menu_bottom_nav.xml" value="0.3625" />
       </map>
     </option>
   </component>

@@ -8,21 +8,26 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import minhduc.deviluke.muzic.R;
 import minhduc.deviluke.muzic.databinding.FragmentHomeBinding;
 import minhduc.deviluke.muzic.model.SampleItemModel;
+import minhduc.deviluke.muzic.model.song.SongModel;
+import minhduc.deviluke.muzic.service.MusicPlayer;
 
 public class HomeFragment extends Fragment {
 
   private FragmentHomeBinding mBindings;
   private final List<SampleItemModel> mSampleItemList1 = new ArrayList<>();
   private final List<SampleItemModel> mSampleItemList2 = new ArrayList<>();
-
+  private RecentPlayedAdapter mRecentPlayedAdapter = new RecentPlayedAdapter();
+  
   public HomeFragment() {
     // Required empty public constructor
   }
@@ -62,10 +67,25 @@ public class HomeFragment extends Fragment {
     mBindings.rvPlaylist.setLayoutManager(new LinearLayoutManager(
         requireActivity(),
         LinearLayoutManager.HORIZONTAL,
-        false));
+        false
+    ));
     mBindings.rvPlaylist.setAdapter(mPlaylistAdapter);
-
-
+    
+    // recent play recycler view
+    MusicPlayer mMusicPlayer = MusicPlayer.getInstance(requireContext());
+    mBindings.rvRecentPlayed.setLayoutManager(new LinearLayoutManager(
+      requireActivity(),
+      LinearLayoutManager.VERTICAL,
+      false
+    ));
+    mBindings.rvRecentPlayed.setAdapter(mRecentPlayedAdapter);
+    mMusicPlayer.getListRecentPlay().observe(requireActivity(), new Observer<List<SongModel>>() {
+      @Override
+      public void onChanged(List<SongModel> songModels) {
+        mRecentPlayedAdapter.setListSong(songModels);
+      }
+    });
+    
     return mBindings.getRoot();
   }
 }
