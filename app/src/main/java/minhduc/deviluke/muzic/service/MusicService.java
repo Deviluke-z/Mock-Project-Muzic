@@ -90,7 +90,7 @@ public class MusicService extends Service {
     }
   }
   
-  private void createNotification(SongModel songModel) {
+  public void createNotification(SongModel songModel) {
     RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.layout_notification);
     
     remoteViews.setTextViewText(R.id.tvSongTitleNotification, songModel.getTitle());

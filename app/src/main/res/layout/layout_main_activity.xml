@@ -16,6 +16,14 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progress="0"
+            android:progressBackgroundTint="@color/middle_red"
+            android:thumbTint="@color/middle_red" />
+
         <include
             android:id="@+id/mediaController"
             layout="@layout/layout_media_controller"

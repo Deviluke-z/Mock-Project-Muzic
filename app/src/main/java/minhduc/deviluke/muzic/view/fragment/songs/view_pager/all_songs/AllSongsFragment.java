@@ -23,7 +23,7 @@ public class AllSongsFragment extends Fragment implements AllSongsAdapter.Callba
   AllSongsAdapter mAllSongsAdapter;
   SongViewModel mSongViewModel;
   MusicPlayer mMusicPlayer;
-  ActivityCallback mCallback;
+  MainActivityCallback mCallback;
   
   public AllSongsFragment() {
     // Required empty public constructor

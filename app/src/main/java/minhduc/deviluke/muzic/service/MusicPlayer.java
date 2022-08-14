@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import java.io.IOException;
@@ -61,7 +60,7 @@ public class MusicPlayer {
     
     mCurrentSong = mListSong.get(position);
     play(mCurrentSong.getUri());
-  
+    
     Log.d("Debug", "" + mListRecentPlay.size());
     mListRecentPlay.add(0, mCurrentSong);
     mListLiveDataRecentPlay.setValue(mListRecentPlay);
@@ -121,6 +120,10 @@ public class MusicPlayer {
     } else {
       Toast.makeText(mContext, "Nothing is playing at the present", Toast.LENGTH_SHORT).show();
     }
+  }
+  
+  public boolean isPlaying() {
+    return mMediaPlayer.isPlaying();
   }
   
   public void seekTo(int progress) {
